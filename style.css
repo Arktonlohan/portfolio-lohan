@@ -1,4 +1,4 @@
-/* ================================
+ /* ================================
    GLOBAL RESET
 ================================ */
 
@@ -575,8 +575,8 @@ li {
     }
 
     .section {
-        width: 92%;
-        padding: 42px 0;
+        width: 94%;
+        padding: 34px 0;
     }
 
     .hero {
@@ -589,15 +589,20 @@ li {
         display: none;
     }
 
+    .mobile-about-box,
+    .intro-details {
+        display: none;
+    }
+
     .hero-card {
-        padding: 24px 20px;
-        border-radius: 26px;
+        padding: 30px 22px;
+        border-radius: 30px;
         margin-top: 0;
     }
 
     .terminal-title {
-        font-size: 1.5rem;
-        margin-bottom: 28px;
+        font-size: 1.55rem;
+        margin-bottom: 30px;
         text-align: left;
     }
 
@@ -607,20 +612,20 @@ li {
     }
 
     .profile-preview {
-        padding: 22px 14px;
-        border-radius: 24px;
+        padding: 24px 14px;
+        border-radius: 26px;
         background: radial-gradient(circle at center, rgba(124, 58, 237, 0.18), rgba(15, 23, 42, 0.12));
     }
 
     .profile-photo-large {
-        width: 135px;
-        height: 135px;
+        width: 145px;
+        height: 145px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid rgba(34, 211, 238, 0.55);
         box-shadow:
-            0 0 20px rgba(34, 211, 238, 0.5),
-            0 0 52px rgba(124, 58, 237, 0.42);
+            0 0 22px rgba(34, 211, 238, 0.52),
+            0 0 58px rgba(124, 58, 237, 0.44);
         animation: neonPulse 1.8s infinite alternate;
     }
 
@@ -636,7 +641,7 @@ li {
     .profile-label {
         margin-top: 22px;
         color: #aeb8ca;
-        letter-spacing: 3.5px;
+        letter-spacing: 3.4px;
         font-size: 0.68rem;
         font-weight: 800;
         line-height: 1.8;
@@ -652,9 +657,9 @@ li {
 
     .snapshot-btn {
         flex: 1;
-        min-height: 38px;
-        padding: 0 8px;
-        font-size: 0.72rem;
+        min-height: 42px;
+        padding: 0 6px;
+        font-size: 0.7rem;
     }
 
     .terminal-box {
