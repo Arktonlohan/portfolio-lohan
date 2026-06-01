@@ -518,26 +518,143 @@ li {
 }
 
 @media (max-width: 520px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .section {
         width: 92%;
-        padding: 70px 0;
+        padding: 56px 0;
     }
 
     .navbar {
-        height: 70px;
+        height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        gap: 14px;
     }
 
-    .hero-card,
-    .card {
-        padding: 24px;
+    .logo {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 46px;
+        gap: 36px;
+    }
+
+    .small-title {
+        font-size: 0.68rem;
+        letter-spacing: 4px;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 4rem;
+        line-height: 1.05;
+        margin-bottom: 22px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.55rem;
+        line-height: 1.35;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 30px;
     }
 
     .hero-buttons,
     .contact-links {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 12px;
     }
 
     .btn {
-        width: 100%;
+        width: auto;
+        min-height: 46px;
+        padding: 0 18px;
+        font-size: 0.9rem;
+    }
+
+    .hero-card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .terminal-title {
+        font-size: 1.45rem;
+        margin-bottom: 26px;
+    }
+
+    .snapshot-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .profile-preview {
+        padding: 18px;
+    }
+
+    .profile-photo-large {
+        width: 145px;
+        height: 145px;
+    }
+
+    .profile-label {
+        font-size: 0.75rem;
+        letter-spacing: 5px;
+        margin-top: 18px;
+    }
+
+    .terminal-box {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .terminal-box p {
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .cards-grid {
+        gap: 18px;
+    }
+
+    .card {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .project-card {
+        min-height: auto;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    p,
+    li {
+        font-size: 0.96rem;
     }
 }
