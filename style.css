@@ -197,32 +197,105 @@ li {
 /* ================================
    HERO CARD / TERMINAL
 ================================ */
-
-.profile-badge {
-    display: flex;
+.snapshot-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 28px;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 28px;
-    padding: 18px;
-    border-radius: 22px;
-    background: rgba(34, 211, 238, 0.06);
-    border: 1px solid rgba(34, 211, 238, 0.18);
 }
 
-.profile-icon {
-    width: 64px;
-    height: 64px;
+.profile-preview {
+    text-align: center;
+    padding: 24px;
+    border-radius: 24px;
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.16), rgba(15, 23, 42, 0.15));
+    transition: 0.35s ease;
+}
+
+.profile-preview:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+.profile-photo-large {
+    width: 165px;
+    height: 165px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 1.3rem;
-    color: #ffffff;
-    background: linear-gradient(135deg, #22d3ee, #7c3aed);
+    object-fit: cover;
+    border: 3px solid rgba(34, 211, 238, 0.45);
     box-shadow:
         0 0 18px rgba(34, 211, 238, 0.45),
-        0 0 38px rgba(124, 58, 237, 0.3);
+        0 0 45px rgba(124, 58, 237, 0.35);
+    transition: 0.35s ease;
+}
+
+.profile-photo-large:hover {
+    transform: scale(1.08);
+    animation: neonPulse 1.4s infinite alternate;
+}
+
+.profile-label {
+    margin-top: 22px;
+    color: #aeb8ca;
+    letter-spacing: 6px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.dot.red {
+    background: #fb7185;
+}
+
+.dot.yellow {
+    background: #facc15;
+}
+
+.dot.green {
+    background: #34d399;
+}
+
+.dot:hover {
+    transform: scale(1.45);
+    box-shadow:
+        0 0 12px currentColor,
+        0 0 28px rgba(34, 211, 238, 0.55);
+}
+
+.terminal-box:hover {
+    border-color: rgba(34, 211, 238, 0.55);
+    box-shadow:
+        0 0 18px rgba(34, 211, 238, 0.22),
+        0 0 45px rgba(124, 58, 237, 0.22);
+}
+
+@keyframes neonPulse {
+    0% {
+        box-shadow:
+            0 0 14px rgba(34, 211, 238, 0.35),
+            0 0 35px rgba(124, 58, 237, 0.25);
+    }
+
+    100% {
+        box-shadow:
+            0 0 28px rgba(34, 211, 238, 0.85),
+            0 0 70px rgba(124, 58, 237, 0.65),
+            0 0 95px rgba(59, 130, 246, 0.35);
+    }
+}
 }
 
 .profile-badge h3 {
@@ -430,6 +503,10 @@ li {
         grid-template-columns: 1fr;
         padding-top: 70px;
     }
+
+.snapshot-content {
+    grid-template-columns: 1fr;
+}
 
     .cards-grid {
         grid-template-columns: 1fr;
