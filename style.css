@@ -245,7 +245,7 @@ li {
 }
 
 .snapshot-buttons {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 8px;
     margin-top: 22px;
