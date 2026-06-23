@@ -384,7 +384,7 @@ li {
     background: rgba(15, 23, 42, 0.65);
     border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 22px;
-    padding: 32px;
+    padding: 28px;
     transition: 0.3s ease;
 }
 
@@ -411,9 +411,9 @@ li {
 
 /* Project badge / visual emblem */
 .project-badge {
-    width: 150px;
-    height: 150px;
-    margin: 26px auto 28px;
+    width: 132px;
+    height: 132px;
+    margin: 20px auto 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -432,8 +432,8 @@ li {
 }
 
 .project-badge .badge-icon {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -452,7 +452,7 @@ li {
 .project-badge p {
     margin: 0;
     color: #e5e7eb;
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     font-weight: 900;
     line-height: 1.25;
     letter-spacing: 1.5px;
@@ -564,7 +564,10 @@ li {
 ================================ */
 
 .status {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
     padding: 8px 16px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -681,9 +684,9 @@ li {
 ================================ */
 
 .cert-badge {
-    width: 145px;
-    height: 145px;
-    margin: 24px auto 28px;
+    width: 132px;
+    height: 132px;
+    margin: 20px auto 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -702,8 +705,8 @@ li {
 }
 
 .cert-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -722,7 +725,7 @@ li {
 .cert-badge p {
     margin: 0;
     color: #e5e7eb;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 900;
     line-height: 1.25;
     letter-spacing: 1.4px;
@@ -887,7 +890,7 @@ li {
 .carousel-viewport {
     overflow: hidden;
     width: 100%;
-    padding: 4px;
+    padding: 34px 10px 18px;
 }
 
 .carousel-track {
@@ -944,17 +947,34 @@ li {
     box-shadow: none;
 }
 
+
+.carousel-track .card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 14px;
+}
+
+.carousel-track .card p {
+    font-size: 0.95rem;
+}
+
+.carousel-track .status {
+    align-self: flex-start;
+}
+
 /* Keep carousel cards visually balanced */
 .carousel-track .certification-card,
 .carousel-track .project-card {
-    min-height: 520px;
+    min-height: 480px;
     display: flex;
     flex-direction: column;
 }
 
-.carousel-track .project-links,
-.carousel-track .tags {
+.carousel-track .project-links {
     margin-top: auto;
+}
+
+.carousel-track .tags {
+    margin-top: 18px;
 }
 
 .carousel-track .tags + .project-links {
@@ -1324,7 +1344,7 @@ li {
 
     .carousel-track .certification-card,
     .carousel-track .project-card {
-        min-height: 500px;
+        min-height: 460px;
     }
 }
 
@@ -1369,6 +1389,10 @@ li {
 @media (max-width: 520px) {
     .carousel-wrapper {
         margin-top: 26px;
+    }
+
+    .carousel-viewport {
+        padding: 28px 6px 16px;
     }
 
     .carousel-track {
