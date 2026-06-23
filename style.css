@@ -384,7 +384,7 @@ li {
     background: rgba(15, 23, 42, 0.65);
     border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 22px;
-    padding: 28px;
+    padding: 32px;
     transition: 0.3s ease;
 }
 
@@ -411,9 +411,9 @@ li {
 
 /* Project badge / visual emblem */
 .project-badge {
-    width: 132px;
-    height: 132px;
-    margin: 20px auto 24px;
+    width: 150px;
+    height: 150px;
+    margin: 26px auto 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -432,8 +432,8 @@ li {
 }
 
 .project-badge .badge-icon {
-    width: 52px;
-    height: 52px;
+    width: 58px;
+    height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -452,7 +452,7 @@ li {
 .project-badge p {
     margin: 0;
     color: #e5e7eb;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     font-weight: 900;
     line-height: 1.25;
     letter-spacing: 1.5px;
@@ -564,10 +564,7 @@ li {
 ================================ */
 
 .status {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 36px;
+    display: inline-block;
     padding: 8px 16px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -684,9 +681,9 @@ li {
 ================================ */
 
 .cert-badge {
-    width: 132px;
-    height: 132px;
-    margin: 20px auto 24px;
+    width: 145px;
+    height: 145px;
+    margin: 24px auto 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -705,8 +702,8 @@ li {
 }
 
 .cert-icon {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -725,7 +722,7 @@ li {
 .cert-badge p {
     margin: 0;
     color: #e5e7eb;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 900;
     line-height: 1.25;
     letter-spacing: 1.4px;
@@ -890,7 +887,7 @@ li {
 .carousel-viewport {
     overflow: hidden;
     width: 100%;
-    padding: 34px 10px 18px;
+    padding: 4px;
 }
 
 .carousel-track {
@@ -947,34 +944,17 @@ li {
     box-shadow: none;
 }
 
-
-.carousel-track .card h3 {
-    font-size: 1.12rem;
-    margin-bottom: 14px;
-}
-
-.carousel-track .card p {
-    font-size: 0.95rem;
-}
-
-.carousel-track .status {
-    align-self: flex-start;
-}
-
 /* Keep carousel cards visually balanced */
 .carousel-track .certification-card,
 .carousel-track .project-card {
-    min-height: 480px;
+    min-height: 520px;
     display: flex;
     flex-direction: column;
 }
 
-.carousel-track .project-links {
-    margin-top: auto;
-}
-
+.carousel-track .project-links,
 .carousel-track .tags {
-    margin-top: 18px;
+    margin-top: auto;
 }
 
 .carousel-track .tags + .project-links {
@@ -1344,7 +1324,7 @@ li {
 
     .carousel-track .certification-card,
     .carousel-track .project-card {
-        min-height: 460px;
+        min-height: 500px;
     }
 }
 
@@ -1391,10 +1371,6 @@ li {
         margin-top: 26px;
     }
 
-    .carousel-viewport {
-        padding: 28px 6px 16px;
-    }
-
     .carousel-track {
         gap: 18px;
     }
@@ -1421,5 +1397,133 @@ li {
         font-size: 0.64rem;
         padding: 7px 12px;
         letter-spacing: 0.8px;
+    }
+}
+
+/* ================================
+   FINAL CAROUSEL COMPACT REFINEMENT
+   This keeps the carousel premium, but makes the cards lighter and prevents hover clipping.
+================================ */
+
+.carousel-wrapper {
+    margin-top: 26px;
+}
+
+.carousel-viewport {
+    padding: 24px 10px 28px;
+}
+
+.carousel-track .card {
+    padding: 24px;
+}
+
+.carousel-track .certification-card,
+.carousel-track .project-card {
+    min-height: 440px;
+}
+
+.carousel-track .card h3 {
+    font-size: 1.04rem;
+    margin-bottom: 12px;
+}
+
+.carousel-track .card p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.carousel-track .tags {
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.carousel-track .tags span {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+}
+
+.carousel-track .project-links {
+    gap: 10px;
+}
+
+.carousel-track .project-link {
+    padding: 9px 14px;
+    font-size: 0.82rem;
+}
+
+.carousel-track .status {
+    padding: 7px 14px;
+    font-size: 0.68rem;
+    margin-bottom: 16px;
+}
+
+.project-badge,
+.cert-badge {
+    width: 116px;
+    height: 116px;
+    margin: 16px auto 20px;
+    border-radius: 26px;
+}
+
+.project-badge .badge-icon,
+.cert-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
+    font-size: 0.72rem;
+}
+
+.project-badge p,
+.cert-badge p {
+    font-size: 0.72rem;
+    letter-spacing: 1.15px;
+    line-height: 1.2;
+}
+
+/* Slightly reduce the hover lift so the card does not touch the carousel edges. */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card:hover .project-badge,
+.card:hover .cert-badge {
+    transform: translateY(-4px) scale(1.045);
+}
+
+@media (max-width: 950px) {
+    .carousel-track .certification-card,
+    .carousel-track .project-card {
+        min-height: 430px;
+    }
+}
+
+@media (max-width: 520px) {
+    .carousel-viewport {
+        padding: 22px 6px 22px;
+    }
+
+    .carousel-track .card {
+        padding: 22px;
+    }
+
+    .project-badge,
+    .cert-badge {
+        width: 108px;
+        height: 108px;
+        margin: 16px auto 18px;
+        border-radius: 24px;
+    }
+
+    .project-badge .badge-icon,
+    .cert-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        font-size: 0.68rem;
+    }
+
+    .project-badge p,
+    .cert-badge p {
+        font-size: 0.68rem;
     }
 }
