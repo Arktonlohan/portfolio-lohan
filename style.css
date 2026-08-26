@@ -20,6 +20,59 @@ body {
 }
 
 /* ================================
+   ANIMATED AURORA BACKGROUND
+================================ */
+/* Two soft blurred glows (same cyan/violet the site already uses) that
+   drift slowly behind everything. Fixed + negative z-index so they sit
+   under all real content and scroll with the viewport, not the page —
+   this reads as "the background itself is alive" instead of moving with
+   scroll like a regular element would. */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    width: 420px;
+    height: 420px;
+    top: -140px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.28), transparent 68%);
+    animation: auroraDrift1 9s ease-in-out infinite;
+}
+
+body::after {
+    width: 380px;
+    height: 380px;
+    bottom: -160px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent 68%);
+    animation: auroraDrift2 11s ease-in-out infinite;
+}
+
+@keyframes auroraDrift1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(50px, 40px); }
+}
+
+@keyframes auroraDrift2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-40px, -30px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
+}
+
+/* ================================
    GENERAL STYLES
 ================================ */
 
