@@ -12,21 +12,45 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Space Grotesk for headings (distinct, geometric, common in strong dev
+   portfolios — replaces the system-default look), Inter for body copy
+   (the readable workhorse most real tech products use), JetBrains Mono
+   for the terminal (upgrades the old generic "Courier New" fallback). */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     background: #050816;
     color: #f5f7fa;
     line-height: 1.6;
 }
 
+h1,
+h2,
+h3,
+.logo,
+.btn,
+.snapshot-btn,
+.terminal-title,
+.status,
+.cert-badge p,
+.project-badge p,
+.cert-icon,
+.badge-icon {
+    font-family: 'Space Grotesk', Arial, Helvetica, sans-serif;
+}
+
 /* ================================
    ANIMATED AURORA BACKGROUND
 ================================ */
-/* Two soft blurred glows (same cyan/violet the site already uses) that
-   drift slowly behind everything. Fixed + negative z-index so they sit
-   under all real content and scroll with the viewport, not the page —
-   this reads as "the background itself is alive" instead of moving with
-   scroll like a regular element would. */
+/* Two soft blurred violet glows that drift slowly behind everything.
+   Deliberately violet-only, not cyan — cyan is the flagship project card's
+   signature color (see .flagship-card), so keeping it out of the ambient
+   background is what lets that card actually pop instead of blending into
+   a background that already looks like it. Fixed + negative z-index so
+   they sit under all real content and scroll with the viewport, not the
+   page — this reads as "the background itself is alive" instead of
+   moving with scroll like a regular element would. */
 body::before,
 body::after {
     content: "";
@@ -42,7 +66,7 @@ body::before {
     height: 420px;
     top: -140px;
     left: -100px;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.28), transparent 68%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent 68%);
     animation: auroraDrift1 9s ease-in-out infinite;
 }
 
@@ -51,7 +75,7 @@ body::after {
     height: 380px;
     bottom: -160px;
     right: -80px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent 68%);
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.26), transparent 68%);
     animation: auroraDrift2 11s ease-in-out infinite;
 }
 
@@ -69,6 +93,19 @@ body::after {
     body::before,
     body::after {
         animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* At phone widths the original 420px/380px blobs were wider than the
+       viewport itself (measured: 112% of screen width on a 375px phone) —
+       they dominated the whole screen instead of sitting as a corner
+       accent. Shrunk here so mobile gets the same subtle effect desktop
+       has, not a wash of color over everything. */
+    body::before,
+    body::after {
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -413,7 +450,7 @@ li {
 }
 
 .terminal-box p {
-    font-family: "Courier New", monospace;
+    font-family: "JetBrains Mono", "Courier New", monospace;
     color: #e5e7eb;
     margin-bottom: 10px;
 }
@@ -452,6 +489,24 @@ li {
 
 .highlighted-card {
     background: linear-gradient(145deg, rgba(37, 99, 235, 0.18), rgba(124, 58, 237, 0.12));
+}
+
+/* Section-specific column ratios — without these every section (About,
+   Career Direction, Skills) rendered as the same 3-equal-card grid back
+   to back, so scrolling past them felt like the same block repeating with
+   different words. Each section now has its own rhythm; collapses to a
+   single column on mobile same as .cards-grid (see responsive section). */
+.direction-grid {
+    grid-template-columns: 0.9fr 1.2fr 0.9fr;
+}
+
+.emphasis-card {
+    background: linear-gradient(145deg, rgba(37, 99, 235, 0.3), rgba(124, 58, 237, 0.24));
+    border-color: rgba(124, 58, 237, 0.45);
+}
+
+.skills-grid {
+    grid-template-columns: 1.3fr 1fr 1fr;
 }
 
 /* Flagship project card — Motty. Unlike regular cards, which only glow on
@@ -665,6 +720,11 @@ li {
 /* ================================
    STATUS LABELS
 ================================ */
+/* Structural base only — colors + hover states live in one place,
+   "STATUS COLOR VARIANTS + HOVER" further down. This file used to define
+   .status (and every color variant) twice; the second copy silently won
+   because it came later in the cascade, so the first was dead weight that
+   made the file confusing to edit. Consolidated 21/08/2026. */
 
 .status {
     display: inline-block;
@@ -679,50 +739,6 @@ li {
     box-shadow:
         0 0 14px rgba(148, 163, 184, 0.18),
         0 0 28px rgba(148, 163, 184, 0.08);
-}
-
-/* Active project: blue neon */
-.status.active {
-    background: rgba(59, 130, 246, 0.16);
-    color: #bfdbfe;
-    border-color: rgba(59, 130, 246, 0.65);
-    box-shadow:
-        0 0 14px rgba(59, 130, 246, 0.45),
-        0 0 34px rgba(34, 211, 238, 0.28);
-}
-
-/* Completed course or project: dark green neon */
-.status.completed {
-    background: rgba(6, 78, 59, 0.62);
-    color: #a7f3d0;
-    border-color: rgba(16, 185, 129, 0.75);
-    box-shadow:
-        0 0 16px rgba(16, 185, 129, 0.55),
-        0 0 38px rgba(5, 150, 105, 0.35);
-}
-
-/* Currently studying / training / in development: orange neon */
-.status.studying,
-.status.training,
-.status.development,
-.status.progress {
-    background: rgba(124, 45, 18, 0.58);
-    color: #fed7aa;
-    border-color: rgba(249, 115, 22, 0.78);
-    box-shadow:
-        0 0 16px rgba(249, 115, 22, 0.55),
-        0 0 38px rgba(251, 146, 60, 0.34);
-}
-
-/* Planned or future: dark purple neon */
-.status.planned,
-.status.future {
-    background: rgba(59, 7, 100, 0.62);
-    color: #e9d5ff;
-    border-color: rgba(168, 85, 247, 0.75);
-    box-shadow:
-        0 0 16px rgba(168, 85, 247, 0.55),
-        0 0 38px rgba(126, 34, 206, 0.34);
 }
 
 .tags {
@@ -1093,7 +1109,7 @@ li {
 }
 
 /* ================================
-   STRONG NEON STATUS BUTTONS
+   STATUS COLOR VARIANTS + HOVER
 ================================ */
 
 .status {
@@ -1194,13 +1210,43 @@ li {
 /* ================================
    SKILLS
 ================================ */
+/* Chips instead of a plain bulleted <ul> — every other section already
+   speaks in colored pill tags (certifications, projects), so a bare list
+   here was the odd one out. Reuses the studying/completed color language
+   from .status: learning-next in the same orange as "currently studying"
+   badges, so the color itself says "not there yet" without extra text. */
 
-.card ul {
-    margin-top: 14px;
+.skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
 }
 
-.card li {
-    margin-bottom: 10px;
+.skill-chips span {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.chips-tech span {
+    background: rgba(16, 185, 129, 0.14);
+    color: #a7f3d0;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.chips-learning span {
+    background: rgba(249, 115, 22, 0.14);
+    color: #fed7aa;
+    border-color: rgba(249, 115, 22, 0.4);
+}
+
+.chips-soft span {
+    background: rgba(168, 85, 247, 0.14);
+    color: #e9d5ff;
+    border-color: rgba(168, 85, 247, 0.4);
 }
 
 /* ================================
