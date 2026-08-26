@@ -123,7 +123,12 @@ ul {
 }
 
 .section {
-    width: min(1120px, 90%);
+    /* Was capped at 1120px/90% — on a wide desktop window that left huge
+       dead margins on both sides (measured: ~400px each on a 1920px
+       screen). Raised so the site actually uses the width it has, while
+       still capping somewhere so paragraph text doesn't stretch into
+       unreadable full-width lines on an ultrawide monitor. */
+    width: min(1500px, 92%);
     margin: 0 auto;
     padding: 100px 0;
 }
@@ -178,7 +183,7 @@ li {
 }
 
 .navbar {
-    width: min(1120px, 90%);
+    width: min(1500px, 92%);
     margin: 0 auto;
     height: 78px;
     display: flex;
@@ -1321,7 +1326,7 @@ li {
     }
 
     .section {
-        width: 94%;
+        width: 96%;
         padding: 34px 0;
     }
 
