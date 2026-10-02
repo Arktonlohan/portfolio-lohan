@@ -91,3 +91,53 @@ carouselWrappers.forEach(function (carousel) {
 });
 
 
+
+// This code controls the light/dark theme toggle.
+// The initial theme is set by a small script in <head> (saved choice,
+// otherwise the system setting); this only handles clicks and keeps
+// following the system while the visitor hasn't picked a theme.
+
+const themeToggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
+const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+
+    if (themeToggle) {
+        themeToggle.setAttribute(
+            "aria-label",
+            theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+        );
+    }
+}
+
+function getSavedTheme() {
+    try {
+        return localStorage.getItem("theme");
+    } catch (error) {
+        return null;
+    }
+}
+
+applyTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+        const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+        applyTheme(nextTheme);
+
+        try {
+            localStorage.setItem("theme", nextTheme);
+        } catch (error) {
+            // Storage blocked (private mode) — the theme still switches for this visit.
+        }
+    });
+}
+
+systemDark.addEventListener("change", function (event) {
+    if (!getSavedTheme()) {
+        applyTheme(event.matches ? "dark" : "light");
+    }
+});
