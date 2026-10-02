@@ -61,10 +61,10 @@ html {
     /* LED hover glow — blue -> violet -> pink. Softer on the light
        background so it reads as a colored halo, not a smudge. */
     --led-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6 55%, #ec4899);
-    --led-border: rgba(99, 102, 241, 0.55);
-    --led-blue: rgba(59, 130, 246, 0.28);
-    --led-violet: rgba(139, 92, 246, 0.22);
-    --led-pink: rgba(236, 72, 153, 0.16);
+    --led-border: rgba(99, 102, 241, 0.85);
+    --led-blue: rgba(59, 130, 246, 0.6);
+    --led-violet: rgba(139, 92, 246, 0.5);
+    --led-pink: rgba(236, 72, 153, 0.4);
 }
 
 :root[data-theme="dark"] {
@@ -96,10 +96,10 @@ html {
     --orange-bg: rgba(249, 115, 22, 0.12); --orange-text: #fdba74; --orange-border: rgba(249, 115, 22, 0.35);
     --purple-bg: rgba(168, 85, 247, 0.12); --purple-text: #d8b4fe; --purple-border: rgba(168, 85, 247, 0.35);
 
-    --led-border: rgba(129, 140, 248, 0.85);
-    --led-blue: rgba(59, 130, 246, 0.5);
-    --led-violet: rgba(139, 92, 246, 0.42);
-    --led-pink: rgba(236, 72, 153, 0.3);
+    --led-border: rgba(129, 140, 248, 1);
+    --led-blue: rgba(59, 130, 246, 0.75);
+    --led-violet: rgba(139, 92, 246, 0.62);
+    --led-pink: rgba(236, 72, 153, 0.48);
 }
 
 body {
@@ -1416,9 +1416,9 @@ li {
     --led-ease: cubic-bezier(0.22, 1, 0.36, 1);
     --led-glow:
         0 0 0 1px var(--led-border),
-        0 0 14px var(--led-blue),
-        0 0 32px var(--led-violet),
-        0 0 56px var(--led-pink);
+        0 0 18px var(--led-blue),
+        0 0 40px var(--led-violet),
+        0 0 70px var(--led-pink);
 }
 
 .btn,
@@ -1509,8 +1509,8 @@ li {
 .nav-links a:hover,
 .nav-links a.active-link {
     text-shadow:
-        0 0 10px var(--led-blue),
-        0 0 22px var(--led-violet);
+        0 0 12px var(--led-blue),
+        0 0 26px var(--led-violet);
 }
 
 /* Cards */
@@ -1523,7 +1523,8 @@ li {
 .flagship-card {
     box-shadow:
         0 0 0 1px var(--led-border),
-        0 0 24px var(--led-blue);
+        0 0 28px var(--led-blue),
+        0 0 56px var(--led-violet);
 }
 
 .project-card:hover .project-badge,
@@ -1531,14 +1532,14 @@ li {
     transform: translateY(-4px) scale(1.06);
     border-color: var(--led-border);
     box-shadow:
-        0 0 18px var(--led-blue),
-        0 0 36px var(--led-violet);
+        0 0 22px var(--led-blue),
+        0 0 46px var(--led-violet);
 }
 
 .project-card:hover .badge-icon,
 .card:hover .cert-icon {
     transform: scale(1.1);
-    box-shadow: 0 0 16px var(--led-violet);
+    box-shadow: 0 0 20px var(--led-violet), 0 0 36px var(--led-pink);
 }
 
 /* Status labels and chips glow in their own color */
@@ -1546,13 +1547,13 @@ li {
 .skill-chips span:hover {
     transform: translateY(-2px) scale(1.06);
     box-shadow:
-        0 0 12px color-mix(in srgb, currentColor 40%, transparent),
-        0 0 26px color-mix(in srgb, currentColor 22%, transparent);
+        0 0 14px color-mix(in srgb, currentColor 65%, transparent),
+        0 0 32px color-mix(in srgb, currentColor 40%, transparent);
 }
 
 .tags span:hover {
     transform: scale(1.06);
-    box-shadow: 0 0 0 1px var(--led-border), 0 0 14px var(--led-blue);
+    box-shadow: 0 0 0 1px var(--led-border), 0 0 18px var(--led-blue), 0 0 32px var(--led-violet);
 }
 
 /* Hero snapshot */
